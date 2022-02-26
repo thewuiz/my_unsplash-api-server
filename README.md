@@ -1,10 +1,10 @@
 # My unsplash api server
 
-\_Servidor del proyecto My unsplash api, el proyecto esta hecho con Node.js + TypeScript
+Servidor del proyecto My unsplash api, el proyecto esta hecho con Node.js + TypeScript
 
 ---
 
-## Prerequisitos
+## Pre-requisitos
 
 Ejecutar `$ npm Install` para instalar las dependencias de node.
 
