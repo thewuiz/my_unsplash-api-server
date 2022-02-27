@@ -2,13 +2,9 @@
 
 Servidor del proyecto My unsplash api, el proyecto esta hecho con Node.js + TypeScript
 
----
-
 ## Pre-requisitos
 
 Ejecutar `$ npm Install` para instalar las dependencias de node.
-
----
 
 ## Correr aplicacion
 

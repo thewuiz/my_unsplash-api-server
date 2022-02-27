@@ -12,7 +12,9 @@ import validate_data from "../middlewares/validate_data";
 import validate_jwt from "../middlewares/validate_jwt";
 const router = express.Router();
 
-router.get("/images/:id", validate_jwt, controller.getImagesByUserId);
+router.get("/images", validate_jwt, controller.getAllImages);
+
+router.get("/search", validate_jwt, controller.getImagesBySearch);
 
 router.post(
   "/url",
@@ -20,6 +22,7 @@ router.post(
     validate_jwt,
     check("image_url", "The url is required").not().isEmpty().isURL(),
     check("label", "Label is required").not().isEmpty(),
+    check("label", "The maximum is 50 characters").isLength({ max: 50 }),
     validate_data,
   ],
   controller.createImageUrl

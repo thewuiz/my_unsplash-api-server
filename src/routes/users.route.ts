@@ -16,7 +16,10 @@ router.get("/user/:id", controller.getUserById);
 router.post(
   "/create",
   [
-    check("email").isEmail(),
+    check(
+      "email",
+      "The email does not have a correct format or is emty"
+    ).isEmail(),
     check("password", "Password is required").not().isEmpty(),
     check(
       "password",

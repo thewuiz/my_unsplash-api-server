@@ -9,16 +9,12 @@ const login = async (req: Request, res: Response) => {
   try {
     const userDB = await User.findOne({ email });
     if (!userDB) {
-      return res
-        .status(404)
-        .json({ ok: false, msg: "Wrong username or password" });
+      return res.status(404).json({ errors: ["Wrong username or password"] });
     }
 
     const validPassword = bcrypt.compareSync(password, userDB.password);
     if (!validPassword) {
-      return res
-        .status(400)
-        .json({ ok: false, msg: "Wrong username or password" });
+      return res.status(400).json({ errors: ["Wrong username or password"] });
     }
 
     const token = await generate_jwt(userDB.id);
@@ -27,7 +23,7 @@ const login = async (req: Request, res: Response) => {
   } catch (error) {
     return res.status(500).json({
       ok: false,
-      msg: `Error: ${error}`,
+      errors: [`Error: ${error}`],
     });
   }
 };

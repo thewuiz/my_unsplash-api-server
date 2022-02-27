@@ -36,7 +36,7 @@ const createUser = async (req: Request, res: Response) => {
     const email_exists = await User.findOne({ email });
     if (email_exists) {
       return res.status(400).json({
-        error: "The email has already been registered",
+        errors: ["The email has already been registered"],
       });
     }
     const userDB = new User(req.body);
@@ -50,7 +50,7 @@ const createUser = async (req: Request, res: Response) => {
     return res.json({ user: userDB, token: token_access });
   } catch (error) {
     return res.status(500).json({
-      msg: "Unexpected error... check logs: " + error,
+      errors: ["Unexpected error... check logs: " + error],
     });
   }
 };
