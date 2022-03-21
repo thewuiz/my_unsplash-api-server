@@ -6,9 +6,9 @@
 
 import express from "express";
 import { check } from "express-validator";
-
 import controller from "../controllers/auth.controller";
 import validate_data from "../middlewares/validate_data";
+
 const router = express.Router();
 
 router.post(
