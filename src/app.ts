@@ -15,4 +15,4 @@ app.use("/api/login", require("./routes/auth.route"));
 app.use("/api/users", require("./routes/users.route"));
 app.use("/api/image", require("./routes/images.route"));
 
-app.listen(port, () => console.log(`Example app listening on port ${port}`));
+app.listen(port, () => console.log(`App listening on port ${port}`));
